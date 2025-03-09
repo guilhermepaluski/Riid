@@ -4,7 +4,7 @@ Este é um sistema web para empréstimo e gerenciamento de livros. Permite que o
 
 <h2>🏗️ Requisitos</h2>
 
-- Requisitos Funcionais
+<h3>Requisitos Funcionais</h3>
 - RF01: O sistema deve permitir que um livro seja emprestado;
 - RF02: O sistema deve registrar os livros emprestados de cada usuário, gerando um histórico individual;
 - RF03: O sistema deve gerar um boleto de multa ao cliente, de acordo com o prazo de atraso de um ou mais livros;
@@ -13,7 +13,7 @@ Este é um sistema web para empréstimo e gerenciamento de livros. Permite que o
 - RF06: O sistema deve gerar um arquivo.pdf a cada empréstimo de livro de um usuário;
 - RF07: Cada pdf gerado deve ser criptografado com uma senha especial.
 
-- Requisitos Não Funcionais
+<h3>Requisitos Não Funcionais</h3>
 - RNF01: O sistema deve ser feito em React e JavaScript no front-end;
 - RNF02: O sistema deve ser feito em ambiente .NET no back-end;
 - RNF03: O sistema deve ser fácil e intuitivo de usar;
@@ -27,14 +27,14 @@ Este é um sistema web para empréstimo e gerenciamento de livros. Permite que o
 
 <h2>🛠️ Construído com</h2>
 
-Front-end:
+<h3>Front-end</h3>
 - HTML5;
 - CSS3;
 - JavaScript;
 - TypeScript;
 - React.
  
-Back-end:
+<h3>Back-end</h3>
 - C#;
 - MySQL.
  
