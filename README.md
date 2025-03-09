@@ -28,15 +28,15 @@ Este é um sistema web para empréstimo e gerenciamento de livros. Permite que o
 <h2>🛠️ Construído com</h2>
 
 <h3>Front-end</h3>
-- HTML5;
-- CSS3;
-- JavaScript;
-- TypeScript;
-- React.
+- HTML5;<br>
+- CSS3;<br>
+- JavaScript;<br>
+- TypeScript;<br>
+- React.<br>
  
 <h3>Back-end</h3>
-- C#;
-- MySQL.
+- C#;<br>
+- MySQL.<br>
  
 Vite - Servidor de desenvolvimento local
 
