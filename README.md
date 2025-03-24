@@ -46,5 +46,5 @@ Vite - Servidor de desenvolvimento local
  
 <h2>✒️ Autores</h2>
  
-- Guilherme Mafra Paluski (Front-end)
+- Guilherme Mafra Paluski (Front-end) - https://github.com/guilhermepaluski/Riid_Frontend.git
 - Gustavo Mafra Paluski (Back-end)
