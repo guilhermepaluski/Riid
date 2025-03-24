@@ -48,3 +48,7 @@ Vite - Servidor de desenvolvimento local
  
 - Guilherme Mafra Paluski (Front-end) - https://github.com/guilhermepaluski/Riid_Frontend.git
 - Gustavo Mafra Paluski (Back-end)
+
+<h2>🖌️ Figma</h2>
+
+https://www.figma.com/design/9hgtG51puAwFZF0tbnvhZb/Riid?node-id=0-1&p=f&t=j0rFsaTheZ26K16r-0
