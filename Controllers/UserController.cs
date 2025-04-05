@@ -22,7 +22,7 @@ namespace Riid.Controller
 
         [HttpPost]
         public async Task<IActionResult> AddUser(UserModel user){
-            _appDbContext.RiidDb.Add(user);
+            _appDbContext.User.Add(user);
             await _appDbContext.SaveChangesAsync();
 
             return Ok(user);
@@ -30,13 +30,13 @@ namespace Riid.Controller
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserModel>>> getUsers(){
-            var users = await _appDbContext.RiidDb.ToListAsync();
+            var users = await _appDbContext.User.ToListAsync();
             return Ok(users);
         }
 
         [HttpPut]
         public async Task<IActionResult> PutUser(long id, string cpf, string email, string name, string password){
-            var user = await _appDbContext.RiidDb.FindAsync(id);
+            var user = await _appDbContext.User.FindAsync(id);
             
             if(id < 0 || user == null) return NotFound();
 
@@ -52,11 +52,11 @@ namespace Riid.Controller
         public async Task<ActionResult<UserModel>> DeleteUser(long Id){
             try
             {
-                var userToDelete = await _appDbContext.RiidDb.FindAsync(Id);
+                var userToDelete = await _appDbContext.User.FindAsync(Id);
 
                 if(userToDelete == null) return NotFound();
 
-                _appDbContext.RiidDb.Remove(userToDelete);
+                _appDbContext.User.Remove(userToDelete);
                 await _appDbContext.SaveChangesAsync();
                 return Ok("Deleted successfully");
             }

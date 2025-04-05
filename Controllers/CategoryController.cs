@@ -42,6 +42,7 @@ namespace Riid.Controllers
         public async Task<ActionResult> putCategory()
         {
             //Terminar
+            return Ok("Ok");
         }
     }
 }
