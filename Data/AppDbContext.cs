@@ -7,6 +7,7 @@ namespace Riid.Data
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<UserModel> RiidDb { get; set; }
+        public DbSet<UserModel> User { get; set; }
+        public DbSet<CategoryModel> Category { get; set; }
     }
 }

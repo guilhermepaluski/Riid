@@ -40,3 +40,4 @@ D:\Faculdade\Trabalhos_e_tarefas\5_semestre\Desenvolvimento_web\Riid\Riid\obj\De
 D:\Faculdade\Trabalhos_e_tarefas\5_semestre\Desenvolvimento_web\Riid\Riid\obj\Debug\net8.0\Riid.pdb
 D:\Faculdade\Trabalhos_e_tarefas\5_semestre\Desenvolvimento_web\Riid\Riid\obj\Debug\net8.0\Riid.genruntimeconfig.cache
 D:\Faculdade\Trabalhos_e_tarefas\5_semestre\Desenvolvimento_web\Riid\Riid\obj\Debug\net8.0\ref\Riid.dll
+D:\Faculdade\Trabalhos_e_tarefas\5_semestre\Desenvolvimento_web\Riid\Riid\obj\Debug\net8.0\Riid.sourcelink.json
