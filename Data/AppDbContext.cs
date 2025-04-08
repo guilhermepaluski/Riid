@@ -9,5 +9,7 @@ namespace Riid.Data
 
         public DbSet<UserModel> User { get; set; }
         public DbSet<CategoryModel> Category { get; set; }
+
+        public DbSet<AuthorModel> Author { get; set; }
     }
 }
