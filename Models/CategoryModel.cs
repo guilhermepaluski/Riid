@@ -24,5 +24,7 @@ namespace Riid.Models
             get { return _description; }
             set {_description = value; } 
         }
+
+        public ICollection<BookModel> Books { get; set; }
     }
 }

@@ -10,12 +10,8 @@ namespace Riid.Models
     {
         [Key]
         public long Id { get; private set; }
-        private string _name;
+        public string Name {get; set; }
 
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
+        public ICollection<BookModel> Books { get; set; }
     }
 }
