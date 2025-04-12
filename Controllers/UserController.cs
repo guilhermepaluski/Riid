@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Riid.Data;
+using Riid.DTO;
 using Riid.Models;
 
 namespace Riid.Controller
@@ -21,26 +22,42 @@ namespace Riid.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddUser(UserModel user){
+        public async Task<IActionResult> AddUser(UserDTO userDTO){
+            
+            var user = new UserModel
+            {
+                Id = userDTO.Id,
+                Email = userDTO.Email,
+                Name = userDTO.Name,
+                Password = userDTO.Password
+            };
+
             _appDbContext.User.Add(user);
             await _appDbContext.SaveChangesAsync();
 
-            return Ok(user);
+            return Ok("User created successfully!");
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserModel>>> getUsers(){
-            var users = await _appDbContext.User.ToListAsync();
+        public async Task<ActionResult<UserModel>> getUsers(){
+            
+            var users = await _appDbContext.User.Select(u => new UserDTO{
+                Id = u.Id,
+                Email = u.Email,
+                Name = u.Name,
+                Password = u.Password
+            }).ToListAsync();
+
             return Ok(users);
+
         }
 
         [HttpPut("{id:long}")]
-        public async Task<IActionResult> PutUser(long id, [FromBody]UserModel userBody){
+        public async Task<IActionResult> PutUser(long id, [FromBody]UserDTO userBody){
             var user = await _appDbContext.User.FindAsync(id);
             
             if(id < 0 || user == null) return NotFound();
 
-            user.Cpf = userBody.Cpf;
             user.Email = userBody.Email;
             user.Name = userBody.Name;
             user.Password = userBody.Password;
