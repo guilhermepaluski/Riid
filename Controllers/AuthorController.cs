@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Riid.Data;
+using Riid.DTO;
 using Riid.Models;
 
 namespace Riid.Controllers
@@ -21,13 +22,16 @@ namespace Riid.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<AuthorModel>> createAuthor([FromBody]AuthorModel authorBody)
+        public async Task<IActionResult> createAuthor([FromBody] AuthorDTO authorBody)
         {
-            // var author = await _db.Author.FindAsync(authorBody.Name);
 
-            // if(author != null) return BadRequest("Author already exists!");
+            var author = new AuthorModel
+            {
+                Name = authorBody.Name,
+                Books = new List<BookModel>()
+            };
 
-            await _db.Author.AddAsync(authorBody);
+            _db.Author.Add(author);
             await _db.SaveChangesAsync();
 
             return Ok("Author '"+authorBody.Name+"' created");
@@ -36,8 +40,9 @@ namespace Riid.Controllers
         [HttpGet]
         public async Task<ActionResult<AuthorModel>> getAllAuthors()
         {
-            var authors = await _db.Author.ToListAsync();
-            return Ok(authors);
+            var author = await _db.Author.Include(a => a.Books).ToListAsync();
+
+            return Ok(author);
         }
 
         [HttpPut("{Id:long}")]
