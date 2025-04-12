@@ -19,5 +19,7 @@ namespace Riid.Models
 
         public CategoryModel Category { get; set; }
         public AuthorModel Author { get; set; }
+
+        public ICollection<BookPdfModel> BookPdfs { get; set; }
     }
 }
