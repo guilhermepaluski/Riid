@@ -27,6 +27,7 @@ namespace Riid.Controllers
         {
             var category = new CategoryModel
             {
+                Id = categoryDTO.Id,
                 Description = categoryDTO.Description,
                 Name = categoryDTO.Name,
                 Books = new List<BookModel>()
@@ -42,6 +43,7 @@ namespace Riid.Controllers
         public async Task<ActionResult<IEnumerable<CategoryModel>>> getAllCategories()
         {
             var categories = await _db.Category.Select(c => new CategoryDTO{
+                Id = c.Id,
                 Description = c.Description,
                 Name = c.Name
             }).ToListAsync();

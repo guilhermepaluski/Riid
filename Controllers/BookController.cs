@@ -26,6 +26,7 @@ namespace Riid.Controllers
         {
             var book = new BookModel
             {
+                Id = bookDTO.Id,
                 Image = bookDTO.Image,
                 Name = bookDTO.Name,
                 Pages = bookDTO.Pages,
@@ -43,6 +44,7 @@ namespace Riid.Controllers
         public async Task<ActionResult<BookModel>> getAllBooks()
         {
             var books = await _db.Book.Select(b => new BookDTO{
+                Id = b.Id,
                 Image = b.Image,
                 Name = b.Name,
                 Pages = b.Pages,
@@ -54,7 +56,7 @@ namespace Riid.Controllers
         }
 
         [HttpPut("{Id:long}")]
-        public async Task<ActionResult> putBook(long id, [FromBody]BookModel BookBody)
+        public async Task<ActionResult> putBook(long id, [FromBody] BookDTO BookBody)
         {
             var book = await _db.Book.FindAsync(id);
 

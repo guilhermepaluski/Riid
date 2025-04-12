@@ -9,7 +9,7 @@ namespace Riid.Models
     public class AuthorModel
     {
         [Key]
-        public long Id { get; private set; }
+        public long Id { get; set; }
         public string Name {get; set; }
 
         public ICollection<BookModel> Books { get; set; }

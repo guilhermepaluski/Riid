@@ -27,6 +27,7 @@ namespace Riid.Controllers
 
             var author = new AuthorModel
             {
+                Id = authorBody.Id,
                 Name = authorBody.Name,
                 Books = new List<BookModel>()
             };
@@ -41,6 +42,7 @@ namespace Riid.Controllers
         public async Task<ActionResult<AuthorModel>> getAllAuthors()
         {
             var authors = await _db.Author.Select(a => new AuthorDTO {
+                Id = a.Id,
                 Name = a.Name
             }).ToListAsync();
 
@@ -48,7 +50,7 @@ namespace Riid.Controllers
         }
 
         [HttpPut("{Id:long}")]
-        public async Task<ActionResult<AuthorModel>> putAuthor(long id, [FromBody]AuthorModel authorBody)
+        public async Task<ActionResult<AuthorModel>> putAuthor(long id, [FromBody] AuthorDTO authorBody)
         {
             var author = await _db.Author.FindAsync(id);
 

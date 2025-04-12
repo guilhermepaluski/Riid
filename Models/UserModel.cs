@@ -5,7 +5,7 @@ namespace Riid.Models
     public class UserModel
     {
         [Key]
-        public long Id { get; private set;  }
+        public long Id { get; set;  }
         private string _cpf;
         private string _email;
         private string _name;
