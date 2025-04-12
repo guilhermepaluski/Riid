@@ -12,6 +12,7 @@ namespace Riid.Data
         public DbSet<AuthorModel> Author { get; set; }
         public DbSet<BookModel> Book { get; set; }
         public DbSet<BookPdfModel> BookPdf { get; set; }
+        public DbSet<LoanModel> Loan { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,6 +30,16 @@ namespace Riid.Data
             .HasOne(b => b.Book)
             .WithMany(bp => bp.BookPdfs)
             .HasForeignKey(b => b.Fk_book);
+
+            modelBuilder.Entity<LoanModel>()
+            .HasOne(u => u.User)
+            .WithMany(l => l.Loans)
+            .HasForeignKey(u => u.Fk_user);
+
+            modelBuilder.Entity<LoanModel>()
+            .HasOne(bp => bp.BookPdf)
+            .WithMany(l => l.Loans)
+            .HasForeignKey(bp => bp.Fk_book_pdf);
         }
     }
 }
