@@ -10,7 +10,8 @@ namespace Riid.Data
         public DbSet<UserModel> User { get; set; }
         public DbSet<CategoryModel> Category { get; set; }
         public DbSet<AuthorModel> Author { get; set; }
-        public DbSet<BookModel> Book {get; set; }
+        public DbSet<BookModel> Book { get; set; }
+        public DbSet<BookPdfModel> BookPdf { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +24,11 @@ namespace Riid.Data
             .HasOne(a => a.Author)
             .WithMany(b => b.Books)
             .HasForeignKey(a => a.Fk_author);
+
+            modelBuilder.Entity<BookPdfModel>()
+            .HasOne(b => b.Book)
+            .WithMany(bp => bp.BookPdfs)
+            .HasForeignKey(b => b.Fk_book);
         }
     }
 }
