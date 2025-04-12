@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Riid.Data;
+using Riid.DTO;
 using Riid.Models;
 
 namespace Riid.Controllers
@@ -22,8 +23,15 @@ namespace Riid.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> createCategory(CategoryModel category)
+        public async Task<ActionResult> createCategory([FromBody] CategoryDTO categoryDTO)
         {
+            var category = new CategoryModel
+            {
+                Description = categoryDTO.Description,
+                Name = categoryDTO.Name,
+                Books = new List<BookModel>()
+            };
+
             _db.Category.Add(category);
             await _db.SaveChangesAsync();
 
@@ -33,13 +41,16 @@ namespace Riid.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CategoryModel>>> getAllCategories()
         {
-            var categories = await _db.Category.ToListAsync();
+            var categories = await _db.Category.Select(c => new CategoryDTO{
+                Description = c.Description,
+                Name = c.Name
+            }).ToListAsync();
 
             return Ok(categories);
         }
 
         [HttpPut("{Id:long}")]
-        public async Task<ActionResult> putCategory(long id, [FromBody]CategoryModel categoryBody)
+        public async Task<ActionResult> putCategory(long id, [FromBody]CategoryDTO categoryBody)
         {
             var category = await _db.Category.FindAsync(id);
 

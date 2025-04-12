@@ -40,9 +40,11 @@ namespace Riid.Controllers
         [HttpGet]
         public async Task<ActionResult<AuthorModel>> getAllAuthors()
         {
-            var author = await _db.Author.Include(a => a.Books).ToListAsync();
+            var authors = await _db.Author.Select(a => new AuthorDTO {
+                Name = a.Name
+            }).ToListAsync();
 
-            return Ok(author);
+            return Ok(authors);
         }
 
         [HttpPut("{Id:long}")]

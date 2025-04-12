@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Riid.Data;
+using Riid.DTO;
 using Riid.Models;
 
 namespace Riid.Controllers
@@ -21,8 +22,17 @@ namespace Riid.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> createBook([FromBody] BookModel book)
+        public async Task<ActionResult> createBook([FromBody] BookDTO bookDTO)
         {
+            var book = new BookModel
+            {
+                Image = bookDTO.Image,
+                Name = bookDTO.Name,
+                Pages = bookDTO.Pages,
+                Fk_category = bookDTO.Fk_category,
+                Fk_author = bookDTO.Fk_author
+            };
+
             _db.Book.Add(book);
             await _db.SaveChangesAsync();
 
@@ -30,9 +40,15 @@ namespace Riid.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BookModel>>> getAllBooks()
+        public async Task<ActionResult<BookModel>> getAllBooks()
         {
-            var books = await _db.Book.ToListAsync();
+            var books = await _db.Book.Select(b => new BookDTO{
+                Image = b.Image,
+                Name = b.Name,
+                Pages = b.Pages,
+                Fk_category = b.Fk_category,
+                Fk_author = b.Fk_author
+            }).ToListAsync();
 
             return Ok(books);
         }
