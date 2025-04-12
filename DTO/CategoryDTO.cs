@@ -1,19 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace Riid.Models
+namespace Riid.DTO
 {
-    public class CategoryModel
+    public class CategoryDTO
     {
-        [Key]
         public long Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-
-        public ICollection<BookModel> Books { get; set; }
     }
 }
