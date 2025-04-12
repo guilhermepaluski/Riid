@@ -14,10 +14,11 @@ namespace Riid.Models
         [Key]
         public long Id { get; set; }
         public string Password { get; set; }
-
         public long Fk_book { get; set; }
 
         public BookModel Book { get; set; }
+
+        public ICollection<LoanModel> Loans { get; set; }
 
         private BookPdfModel() {}
 
