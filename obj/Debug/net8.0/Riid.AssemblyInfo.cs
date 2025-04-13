@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Riid")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+082b614b4a4c4acfb1e27c9f52fb3a84201204fd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+876c279308223233c83214caf77d05b674c77e3b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Riid")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Riid")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
