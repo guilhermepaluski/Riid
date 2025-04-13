@@ -49,10 +49,28 @@ namespace Riid.Controllers
                 Name = b.Name,
                 Pages = b.Pages,
                 Fk_category = b.Fk_category,
-                Fk_author = b.Fk_author
+                Fk_author = b.Fk_author,
+                Author = b.Author,
+                Category = b.Category
             }).ToListAsync();
 
             return Ok(books);
+        }
+
+        [HttpGet("{name}")]
+        public async Task<ActionResult<BookDTO>> getBooksByName(string name)
+        {
+            try
+            {
+                var books = await _db.Book.Where(b => b.Name == name).ToListAsync();
+
+                if (books.Count() == 0) return NotFound("Book "+name+" not found!");
+
+                return Ok(books);
+            }catch(Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Erro searching data");
+            }
         }
 
         [HttpPut("{Id:long}")]

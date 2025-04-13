@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Riid.Models;
 
 namespace Riid.DTO
 {
@@ -14,5 +15,8 @@ namespace Riid.DTO
 
         public long Fk_category { get; set; }
         public long Fk_author { get; set; }
+
+        public CategoryModel Category { get; set; }
+        public AuthorModel Author { get; set; }
     }
 }
