@@ -5,16 +5,16 @@ Este é um sistema web para empréstimo e gerenciamento de livros. Permite que o
 <h2>🏗️ Requisitos</h2>
 
 <h3>Requisitos Funcionais</h3>
-- RF01: O sistema deve permitir a categorização de livros;
-- RF02: O sistema deve permitir associar autores aos livros;
-- RF03: O sistema deve permitir buscar os livros;
-- RF04: O sistema deve gerar um arquivo.pdf a cada empréstimo de livro de um usuário;
-- RF05: Cada pdf gerado deve ser criptografado com uma senha especial.
-- RF06: O sistema deve permitir que um livro seja emprestado dentro de um período de 1 mês;
-- RF07: O sistema deve registrar a data de início e a data prevista de devolução do empréstimo.
-- RF08: O sistema deve registrar os livros emprestados de cada usuário, gerando um histórico individual;
-- RF09: O usuário deve ser capaz de emprestar novamente um livro caso esteja disponível;
-- RF10: O sistema deve calcular automaticamente se um empréstimo está atrasado
+- RF01: O sistema deve permitir a categorização de livros;<br>
+- RF02: O sistema deve permitir associar autores aos livros;<br>
+- RF03: O sistema deve permitir buscar os livros;<br>
+- RF04: O sistema deve gerar um arquivo.pdf a cada empréstimo de livro de um usuário;<br>
+- RF05: Cada pdf gerado deve ser criptografado com uma senha especial.<br>
+- RF06: O sistema deve permitir que um livro seja emprestado dentro de um período de 1 mês;<br>
+- RF07: O sistema deve registrar a data de início e a data prevista de devolução do empréstimo;<br>
+- RF08: O sistema deve registrar os livros emprestados de cada usuário, gerando um histórico individual;<br>
+- RF09: O usuário deve ser capaz de emprestar novamente um livro caso esteja disponível;<br>
+- RF10: O sistema deve calcular automaticamente se um empréstimo está atrasado;<br>
 - RF11: O sistema deve gerar um boleto de multa ao cliente, de acordo com o prazo de atraso de um ou mais livros.<br>
 
 <h3>Requisitos Não Funcionais</h3>
