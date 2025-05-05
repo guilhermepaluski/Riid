@@ -41,18 +41,29 @@ namespace Riid.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<BookModel>> getAllBooks()
+        public async Task<ActionResult<BookDTO>> getAllBooks()
         {
-            var books = await _db.Book.Select(b => new BookDTO{
-                Id = b.Id,
-                Image = b.Image,
-                Name = b.Name,
-                Pages = b.Pages,
-                Fk_category = b.Fk_category,
-                Fk_author = b.Fk_author,
-                Author = b.Author,
-                Category = b.Category
-            }).ToListAsync();
+            // var books = await _db.Book.Select(b => new BookDTO{
+            //     Id = b.Id,
+            //     Image = b.Image,
+            //     Name = b.Name,
+            //     Pages = b.Pages,
+            //     Fk_category = b.Fk_category,
+            //     Fk_author = b.Fk_author,
+            //     Author = b.Author,
+            //     Category = b.Category
+            // }).ToListAsync();
+
+            var books = await _db.Book
+                    .Include(b => b.Author)
+                    .Select(b => new BookListDTO{
+                        Id = b.Id,
+                        Name = b.Name,
+                        Image = b.Image,
+                        Pages = b.Pages,
+                        AuthorName = b.Author.Name,
+                        CategoryName = b.Category.Name
+                    }).ToListAsync();
 
             return Ok(books);
         }
@@ -62,9 +73,21 @@ namespace Riid.Controllers
         {
             try
             {
-                var books = await _db.Book.Where(b => b.Name == name).ToListAsync();
+                var books = await _db.Book
+                    .Include(b => b.Author)
+                    .Include(b => b.Category)
+                    .Where(b => b.Name == name)
+                    .Select(b => new BookDTO
+                    {
+                        Id = b.Id,
+                        Name = b.Name,
+                        Image = b.Image,
+                        Pages = b.Pages,
+                        Category = b.Category,
+                        Author = b.Author
+                    }).FirstOrDefaultAsync();
 
-                if (books.Count() == 0) return NotFound("Book "+name+" not found!");
+                    if(books == null) return NotFound("Book not found!");
 
                 return Ok(books);
             }catch(Exception)
