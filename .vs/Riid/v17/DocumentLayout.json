@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|d:\\faculdade\\trabalhos_e_tarefas\\5_semestre\\desenvolvimento_web\\riid\\riid\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|solutionrelative:controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|d:\\faculdade\\trabalhos_e_tarefas\\5_semestre\\desenvolvimento_web\\riid\\riid\\dto\\bookpdfdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|solutionrelative:dto\\bookpdfdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 161,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BookController.cs",
+              "ToolTip": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\Controllers\\BookController.cs",
+              "RelativeToolTip": "Controllers\\BookController.cs",
+              "ViewState": "AQIAAGcAAAAAAAAAAAAcwAYAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T00:15:24.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookPdfDTO.cs",
+              "DocumentMoniker": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\DTO\\BookPdfDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\BookPdfDTO.cs",
+              "ToolTip": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\DTO\\BookPdfDTO.cs",
+              "RelativeToolTip": "DTO\\BookPdfDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T00:14:59.34Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

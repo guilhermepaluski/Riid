@@ -22,7 +22,7 @@ namespace Riid.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> createBook([FromBody] BookDTO bookDTO)
+        public async Task<ActionResult> createBook([FromBody] BookCreateDTO bookDTO)
         {
             var book = new BookModel
             {
