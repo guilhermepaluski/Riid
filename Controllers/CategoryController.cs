@@ -15,9 +15,9 @@ namespace Riid.Controllers
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
-        private readonly AppDbContext _db;
+        private readonly ApplicationDbContext _db;
 
-        public CategoryController(AppDbContext db)
+        public CategoryController(ApplicationDbContext db)
         {
             _db = db;
         }

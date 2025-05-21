@@ -14,9 +14,9 @@ namespace Riid.Controllers
     [Route("api/[controller]")]
     public class BookController : ControllerBase
     {
-        private readonly AppDbContext _db;
+        private readonly ApplicationDbContext _db;
 
-        public BookController(AppDbContext db)
+        public BookController(ApplicationDbContext db)
         {
             _db = db;
         }

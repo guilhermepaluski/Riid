@@ -14,9 +14,9 @@ namespace Riid.Controllers
     [Route("api/[controller]")]
     public class LoanController : ControllerBase
     {
-        private readonly AppDbContext _db;
+        private readonly ApplicationDbContext _db;
 
-        public LoanController(AppDbContext db)
+        public LoanController(ApplicationDbContext db)
         {
             _db = db;
         }

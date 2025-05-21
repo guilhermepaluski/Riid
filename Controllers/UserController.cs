@@ -1,88 +1,54 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ActionConstraints;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.EntityFrameworkCore;
-using Riid.Data;
 using Riid.DTO;
 using Riid.Models;
 
-namespace Riid.Controller
+[ApiController]
+[Route("api/[controller]")]
+public class AccountController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UserController : ControllerBase
+    private readonly UserManager<UserModel> _userManager;
+    private readonly SignInManager<UserModel> _signInManager;
+
+    public AccountController(UserManager<UserModel> userManager, SignInManager<UserModel> signInManager)
     {
-        private readonly AppDbContext _appDbContext;
+        _userManager = userManager;
+        _signInManager = signInManager;
+    }
 
-        public UserController(AppDbContext appDbContext)
+    [HttpPost("register")]
+    public async Task<IActionResult> Register(RegisterDTO dto)
+    {
+        var user = new UserModel
         {
-            _appDbContext = appDbContext;
-        }
+            UserName = dto.Email,
+            Email = dto.Email,
+            Name = dto.Name
+        };
 
-        [HttpPost]
-        public async Task<IActionResult> AddUser(UserDTO userDTO){
-            
-            var user = new UserModel
-            {
-                Id = userDTO.Id,
-                Email = userDTO.Email,
-                Name = userDTO.Name,
-                Password = userDTO.Password
-            };
+        var result = await _userManager.CreateAsync(user, dto.Password);
 
-            _appDbContext.User.Add(user);
-            await _appDbContext.SaveChangesAsync();
+        if (result.Succeeded)
+            return Ok("Usuário registrado com sucesso");
 
-            return Ok("User created successfully!");
-        }
+        return BadRequest(result.Errors);
+    }
 
-        [HttpGet]
-        public async Task<ActionResult<UserModel>> getUsers(){
-            
-            var users = await _appDbContext.User.Select(u => new UserDTO{
-                Id = u.Id,
-                Email = u.Email,
-                Name = u.Name,
-                Password = u.Password
-            }).ToListAsync();
+    [HttpPost("login")]
+    public async Task<IActionResult> Login(LoginDTO dto)
+    {
+        var result = await _signInManager.PasswordSignInAsync(dto.Email, dto.Password, false, false);
 
-            return Ok(users);
+        if (result.Succeeded)
+            return Ok("Login realizado com sucesso");
 
-        }
+        return Unauthorized("Email ou senha inválidos");
+    }
 
-        [HttpPut("{id:long}")]
-        public async Task<IActionResult> PutUser(long id, [FromBody]UserDTO userBody){
-            var user = await _appDbContext.User.FindAsync(id);
-            
-            if(id < 0 || user == null) return NotFound();
-
-            user.Email = userBody.Email;
-            user.Name = userBody.Name;
-            user.Password = userBody.Password;
-
-            _appDbContext.SaveChanges();
-
-            return Ok(user);
-        }
-
-        [HttpDelete("{Id:long}")]
-        public async Task<ActionResult<UserModel>> DeleteUser(long Id){
-            try
-            {
-                var userToDelete = await _appDbContext.User.FindAsync(Id);
-
-                if(userToDelete == null) return NotFound();
-
-                _appDbContext.User.Remove(userToDelete);
-                await _appDbContext.SaveChangesAsync();
-                return Ok("Deleted successfully");
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Erro deleting data");
-            }
-        }
+    [HttpPost("logout")]
+    public async Task<IActionResult> Logout()
+    {
+        await _signInManager.SignOutAsync();
+        return Ok("Logout realizado com sucesso");
     }
 }
