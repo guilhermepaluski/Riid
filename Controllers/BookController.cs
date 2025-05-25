@@ -43,17 +43,6 @@ namespace Riid.Controllers
         [HttpGet]
         public async Task<ActionResult<BookDTO>> getAllBooks()
         {
-            // var books = await _db.Book.Select(b => new BookDTO{
-            //     Id = b.Id,
-            //     Image = b.Image,
-            //     Name = b.Name,
-            //     Pages = b.Pages,
-            //     Fk_category = b.Fk_category,
-            //     Fk_author = b.Fk_author,
-            //     Author = b.Author,
-            //     Category = b.Category
-            // }).ToListAsync();
-
             var books = await _db.Book
                     .Include(b => b.Author)
                     .Select(b => new BookListDTO{
@@ -66,6 +55,34 @@ namespace Riid.Controllers
                     }).ToListAsync();
 
             return Ok(books);
+        }
+
+        [HttpGet("{Id:long}")]
+        public async Task<ActionResult<BookDTO>> getBooksById(long id)
+        {
+            try
+            {
+                var books = await _db.Book
+                    .Include(b => b.Author)
+                    .Include(b => b.Category)
+                    .Where(b => b.Id == id)
+                    .Select(b => new BookDTO
+                    {
+                        Id = b.Id,
+                        Name = b.Name,
+                        Image = b.Image,
+                        Pages = b.Pages,
+                        Category = b.Category,
+                        Author = b.Author
+                    }).FirstOrDefaultAsync();
+
+                    if(books == null) return NotFound("Book not found!");
+
+                return Ok(books);
+            }catch(Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Erro searching data");
+            }
         }
 
         [HttpGet("{name}")]
