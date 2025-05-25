@@ -70,11 +70,24 @@ namespace Riid.Controllers
 
             return Ok();
         }
-
-        [HttpPost]
-        public async Task<IActionResult> downloadPdf(long id)
+        
+        [HttpGet("download/{id}")]
+        public async Task<IActionResult> DownloadPdf(long id)
         {
-            return Ok("");
+            var bookPdf = await _db.BookPdf.FindAsync(id);
+            if (bookPdf == null)
+                return NotFound("PDF não encontrado.");
+
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", bookPdf.FilePath);
+
+            if (!System.IO.File.Exists(path))
+                return NotFound("Arquivo não existe no servidor.");
+
+            var contentType = "application/pdf";
+            var fileName = Path.GetFileName(path);
+
+            return PhysicalFile(path, contentType, fileName);
         }
+
     }
 }
