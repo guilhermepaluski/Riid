@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Riid.Data;
@@ -21,10 +22,16 @@ namespace Riid.Controllers
             _db = db;
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult> createLoan([FromBody] LoanDTO loanDTO)
         {
-            var loan = LoanModel.Create(loanDTO.Fk_user, loanDTO.Fk_book_pdf);
+            var userIdString = User.FindFirst("id")?.Value;
+
+            if (string.IsNullOrEmpty(userIdString) || !long.TryParse(userIdString, out var userId))
+                return Unauthorized("Usuário não autenticado.");
+
+            var loan = LoanModel.Create(userId, loanDTO.Fk_book_pdf);
 
             _db.Loan.Add(loan);
             await _db.SaveChangesAsync();
