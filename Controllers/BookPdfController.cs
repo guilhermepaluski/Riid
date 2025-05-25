@@ -35,7 +35,8 @@ namespace Riid.Controllers
         [HttpGet]
         public async Task<ActionResult<BookPdfModel>> getAllBooksPdf()
         {
-            var booksPdf = await _db.BookPdf.Select(b => new BookPdfDTO{
+            var booksPdf = await _db.BookPdf.Select(b => new BookPdfDTO
+            {
                 Id = b.Id,
                 Fk_book = b.Fk_book
             }).ToListAsync();
@@ -48,12 +49,12 @@ namespace Riid.Controllers
         {
             var bookPdf = await _db.BookPdf.FindAsync(id);
 
-            if(bookPdf == null) return NotFound("BookPdf not found!");
-            
+            if (bookPdf == null) return NotFound("BookPdf not found!");
+
             bookPdf.Fk_book = BookPdfBody.Fk_book;
 
             await _db.SaveChangesAsync();
-            
+
             return Ok("BookPdf edited successfully!");
         }
 
@@ -62,12 +63,18 @@ namespace Riid.Controllers
         {
             var bookPdf = await _db.BookPdf.FindAsync(id);
 
-            if(bookPdf == null) return NotFound();
+            if (bookPdf == null) return NotFound();
 
             _db.BookPdf.Remove(bookPdf);
             await _db.SaveChangesAsync();
 
             return Ok();
-        }   
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> downloadPdf(long id)
+        {
+            return Ok("");
+        }
     }
 }

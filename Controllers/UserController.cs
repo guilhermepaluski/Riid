@@ -8,7 +8,7 @@ using Riid.DTO;
 using Riid.Models;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/auth/[controller]")]
 public class AccountController : ControllerBase
 {
     private readonly UserManager<UserModel> _userManager;

@@ -13,6 +13,8 @@ namespace Riid.Models
     {
         [Key]
         public long Id { get; set; }
+
+        public string FilePath { get; set; }
         public string Password { get; set; }
         public long Fk_book { get; set; }
 
