@@ -24,7 +24,14 @@ namespace Riid.Controllers
         [HttpPost]
         public async Task<ActionResult> createBookPdf([FromBody] BookPdfDTO bookPdfDTO)
         {
-            var bookPdf = BookPdfModel.Create(bookPdfDTO.FilePath, bookPdfDTO.Fk_book);
+             var book = await _db.Book.FindAsync(bookPdfDTO.Fk_book);
+
+            if (book == null) return NotFound("Book not found!");
+
+            var bookPdf = BookPdfModel.Create(bookPdfDTO.Fk_book);
+            bookPdf.FilePath = Path.Combine("pdfs", book.Name);
+
+            Console.WriteLine(bookPdf);
 
             _db.BookPdf.Add(bookPdf);
             await _db.SaveChangesAsync();
@@ -78,7 +85,8 @@ namespace Riid.Controllers
             if (bookPdf == null)
                 return NotFound("PDF não encontrado.");
 
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", bookPdf.FilePath);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", bookPdf.FilePath+".pdf");
+            Console.WriteLine("Path: " + path);
 
             if (!System.IO.File.Exists(path))
                 return NotFound("Arquivo não existe no servidor.");
