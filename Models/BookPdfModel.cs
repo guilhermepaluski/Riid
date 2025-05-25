@@ -25,13 +25,14 @@ namespace Riid.Models
         private BookPdfModel() {}
 
         //To create a bookpdf object with a hashed password
-        public static BookPdfModel Create(long fk_book)
+        public static BookPdfModel Create(string filePath, long fk_book)
         {
             var passwordHasher = new PasswordHasher<BookPdfModel>();
             var randomPassword = CodeGenerator.GenerateSecureCode();
 
             var newBookPdf = new BookPdfModel
             {
+                FilePath = filePath,
                 Fk_book = fk_book
             };
 

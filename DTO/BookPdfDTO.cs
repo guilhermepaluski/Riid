@@ -8,6 +8,7 @@ namespace Riid.DTO
     public class BookPdfDTO
     {
         public long Id { get; set; }
+        public string FilePath { get; set; }
 
         public long Fk_book { get; set; }
     }

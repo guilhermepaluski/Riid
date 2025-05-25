@@ -24,7 +24,7 @@ namespace Riid.Controllers
         [HttpPost]
         public async Task<ActionResult> createBookPdf([FromBody] BookPdfDTO bookPdfDTO)
         {
-            var bookPdf = BookPdfModel.Create(bookPdfDTO.Fk_book);
+            var bookPdf = BookPdfModel.Create(bookPdfDTO.FilePath, bookPdfDTO.Fk_book);
 
             _db.BookPdf.Add(bookPdf);
             await _db.SaveChangesAsync();
