@@ -5,30 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|d:\\faculdade\\trabalhos_e_tarefas\\5_semestre\\desenvolvimento_web\\riid\\riid\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|d:\\faculdade\\trabalhos_e_tarefas\\5_semestre\\desenvolvimento_web\\riid\\riid\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|d:\\faculdade\\trabalhos_e_tarefas\\5_semestre\\desenvolvimento_web\\riid\\riid\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|d:\\faculdade\\trabalhos_e_tarefas\\5_semestre\\desenvolvimento_web\\riid\\riid\\controllers\\loancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|solutionrelative:controllers\\loancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|d:\\faculdade\\trabalhos_e_tarefas\\5_semestre\\desenvolvimento_web\\riid\\riid\\models\\loanmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|solutionrelative:models\\loanmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|d:\\faculdade\\trabalhos_e_tarefas\\5_semestre\\desenvolvimento_web\\riid\\riid\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|solutionrelative:controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|d:\\faculdade\\trabalhos_e_tarefas\\5_semestre\\desenvolvimento_web\\riid\\riid\\dto\\bookpdfdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE176FFA-EF78-9C5E-07DE-C15003F11FC9}|Riid.csproj|solutionrelative:dto\\bookpdfdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,22 +24,9 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAQwD0AAAAYAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAkwCYAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T21:54:39.193Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-25T21:43:28.771Z",
+              "WhenOpened": "2025-05-26T23:25:49.243Z",
               "EditorCaption": ""
             },
             {
@@ -73,71 +36,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LoanModel.cs",
-              "DocumentMoniker": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\Models\\LoanModel.cs",
-              "RelativeDocumentMoniker": "Models\\LoanModel.cs",
-              "ToolTip": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\Models\\LoanModel.cs",
-              "RelativeToolTip": "Models\\LoanModel.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAgwBgAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T21:04:36.871Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoanController.cs",
-              "DocumentMoniker": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\Controllers\\LoanController.cs",
-              "RelativeDocumentMoniker": "Controllers\\LoanController.cs",
-              "ToolTip": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\Controllers\\LoanController.cs",
-              "RelativeToolTip": "Controllers\\LoanController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAQwCIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T21:04:15.783Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA8AAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T20:55:12.28Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BookController.cs",
-              "DocumentMoniker": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\Controllers\\BookController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BookController.cs",
-              "ToolTip": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\Controllers\\BookController.cs",
-              "RelativeToolTip": "Controllers\\BookController.cs",
-              "ViewState": "AQIAAFIAAAAAAAAAAAAcwAYAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T00:15:24.001Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BookPdfDTO.cs",
-              "DocumentMoniker": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\DTO\\BookPdfDTO.cs",
-              "RelativeDocumentMoniker": "DTO\\BookPdfDTO.cs",
-              "ToolTip": "D:\\Faculdade\\Trabalhos_e_tarefas\\5_semestre\\Desenvolvimento_web\\Riid\\Riid\\DTO\\BookPdfDTO.cs",
-              "RelativeToolTip": "DTO\\BookPdfDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T00:14:59.34Z",
-              "EditorCaption": ""
             }
           ]
         }
