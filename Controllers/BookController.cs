@@ -74,9 +74,7 @@ namespace Riid.Controllers
                         Name = b.Name,
                         Image = b.Image,
                         Pages = b.Pages,
-                        Description = b.Description,
-                        Category = b.Category,
-                        Author = b.Author
+                        Description = b.Description
                     }).FirstOrDefaultAsync();
 
                     if(books == null) return NotFound("Book not found!");
@@ -103,9 +101,7 @@ namespace Riid.Controllers
                         Name = b.Name,
                         Image = b.Image,
                         Pages = b.Pages,
-                        Description = b.Description,
-                        Category = b.Category,
-                        Author = b.Author
+                        Description = b.Description
                     }).FirstOrDefaultAsync();
 
                     if(books == null) return NotFound("Book not found!");
