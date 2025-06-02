@@ -30,6 +30,7 @@ namespace Riid.Controllers
                 Image = bookDTO.Image,
                 Name = bookDTO.Name,
                 Pages = bookDTO.Pages,
+                Description = bookDTO.Description,
                 Fk_category = bookDTO.Fk_category,
                 Fk_author = bookDTO.Fk_author
             };
@@ -50,6 +51,7 @@ namespace Riid.Controllers
                         Name = b.Name,
                         Image = b.Image,
                         Pages = b.Pages,
+                        Description = b.Description,
                         AuthorName = b.Author.Name,
                         CategoryName = b.Category.Name
                     }).ToListAsync();
@@ -72,6 +74,7 @@ namespace Riid.Controllers
                         Name = b.Name,
                         Image = b.Image,
                         Pages = b.Pages,
+                        Description = b.Description,
                         Category = b.Category,
                         Author = b.Author
                     }).FirstOrDefaultAsync();
@@ -100,6 +103,7 @@ namespace Riid.Controllers
                         Name = b.Name,
                         Image = b.Image,
                         Pages = b.Pages,
+                        Description = b.Description,
                         Category = b.Category,
                         Author = b.Author
                     }).FirstOrDefaultAsync();
@@ -123,6 +127,7 @@ namespace Riid.Controllers
             book.Image = BookBody.Image;
             book.Name = BookBody.Name;
             book.Pages = BookBody.Pages;
+            book.Description = BookBody.Description;
             book.Fk_author = BookBody.Fk_author;
             book.Fk_category = BookBody.Fk_category;
 
