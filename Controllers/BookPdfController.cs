@@ -86,7 +86,6 @@ namespace Riid.Controllers
                 return NotFound("PDF não encontrado.");
 
             var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", bookPdf.FilePath+".pdf");
-            Console.WriteLine("Path: " + path);
 
             if (!System.IO.File.Exists(path))
                 return NotFound("Arquivo não existe no servidor.");
