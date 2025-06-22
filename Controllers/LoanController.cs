@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Riid.Data;
-using Riid.DTO;
+using Riid.DTO.Loan;
 using Riid.Models;
 
 namespace Riid.Controllers
@@ -24,14 +24,23 @@ namespace Riid.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult> createLoan([FromBody] LoanDTO loanDTO)
+        public async Task<ActionResult> createLoan([FromBody] LoanCreateDTO loanCreateDTO)
         {
             var userIdString = User.FindFirst("id")?.Value;
 
             if (string.IsNullOrEmpty(userIdString) || !long.TryParse(userIdString, out var userId))
                 return Unauthorized("Usuário não autenticado.");
 
-            var loan = LoanModel.Create(userId, loanDTO.Fk_book_pdf);
+            var book = await _db.Book.FindAsync(loanCreateDTO.Fk_book);
+            if (book == null) return NotFound("Book not found!");
+
+            var bookPdf = BookPdfModel.Create(book.Id);
+            bookPdf.FilePath = Path.Combine("pdfs", book.Name);
+
+            await _db.BookPdf.AddAsync(bookPdf);
+            await _db.SaveChangesAsync();
+
+            var loan = LoanModel.Create(userId, bookPdf.Id);
 
             _db.Loan.Add(loan);
             await _db.SaveChangesAsync();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Riid.DTO
+namespace Riid.DTO.Loan
 {
     public class LoanDTO
     {
