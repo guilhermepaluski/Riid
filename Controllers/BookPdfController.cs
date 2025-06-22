@@ -21,23 +21,23 @@ namespace Riid.Controllers
             _db = db;
         }
 
-        [HttpPost]
-        public async Task<ActionResult> createBookPdf([FromBody] BookPdfDTO bookPdfDTO)
-        {
-             var book = await _db.Book.FindAsync(bookPdfDTO.Fk_book);
+        //[HttpPost]
+        //public async Task<ActionResult> createBookPdf([FromBody] BookPdfDTO bookPdfDTO)
+        //{
+        //     var book = await _db.Book.FindAsync(bookPdfDTO.Fk_book);
 
-            if (book == null) return NotFound("Book not found!");
+        //    if (book == null) return NotFound("Book not found!");
 
-            var bookPdf = BookPdfModel.Create(bookPdfDTO.Fk_book);
-            bookPdf.FilePath = Path.Combine("pdfs", book.Name);
+        //    var bookPdf = BookPdfModel.Create(bookPdfDTO.Fk_book);
+        //    bookPdf.FilePath = Path.Combine("pdfs", book.Name);
 
-            Console.WriteLine(bookPdf);
+        //    Console.WriteLine(bookPdf);
 
-            _db.BookPdf.Add(bookPdf);
-            await _db.SaveChangesAsync();
+        //    _db.BookPdf.Add(bookPdf);
+        //    await _db.SaveChangesAsync();
 
-            return Ok("BookPdf created successfully!");
-        }
+        //    return Ok("BookPdf created successfully!");
+        //}
 
         [HttpGet]
         public async Task<ActionResult<BookPdfModel>> getAllBooksPdf()
@@ -86,7 +86,6 @@ namespace Riid.Controllers
                 return NotFound("PDF não encontrado.");
 
             var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", bookPdf.FilePath+".pdf");
-            Console.WriteLine("Path: " + path);
 
             if (!System.IO.File.Exists(path))
                 return NotFound("Arquivo não existe no servidor.");

@@ -16,8 +16,5 @@ namespace Riid.DTO
 
         public long Fk_category { get; set; }
         public long Fk_author { get; set; }
-
-        public CategoryModel Category { get; set; }
-        public AuthorModel Author { get; set; }
     }
 }
