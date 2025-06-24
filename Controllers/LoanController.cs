@@ -16,7 +16,6 @@ namespace Riid.Controllers
     public class LoanController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
-        private readonly ILogger<LoanController> _logger;
 
         public LoanController(ApplicationDbContext db)
         {
@@ -27,7 +26,6 @@ namespace Riid.Controllers
         [HttpPost]
         public async Task<ActionResult> createLoan([FromBody] LoanCreateDTO loanCreateDTO)
         {
-            _logger.LogInformation("ENTROU AQUI");
             var userIdString = User.FindFirst("id")?.Value;
       
             if (string.IsNullOrEmpty(userIdString) || !long.TryParse(userIdString, out var userId))
