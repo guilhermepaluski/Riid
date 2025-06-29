@@ -31,7 +31,7 @@ namespace Riid.Controllers
             var userIdString = User.FindFirst("id")?.Value;
       
             if (string.IsNullOrEmpty(userIdString) || !long.TryParse(userIdString, out var userId))
-                return Unauthorized("Usuário não autenticado.");
+                return Unauthorized("Usuï¿½rio nï¿½o autenticado.");
 
             var book = await _db.Book.FindAsync(loanCreateDTO.Fk_book);
             if (book == null) return NotFound("Book not found!");
@@ -102,7 +102,7 @@ namespace Riid.Controllers
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
             if (userIdClaim == null)
             {
-                return Unauthorized("Usuário não autenticado.");
+                return Unauthorized("Usuï¿½rio nï¿½o autenticado.");
             }
 
             int userId = int.Parse(userIdClaim.Value);
