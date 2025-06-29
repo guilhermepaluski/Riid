@@ -140,13 +140,16 @@ namespace Riid.Controllers
                 .Where(l => l.Fk_user == userId)
                 .Where(l => l.Id == id)
                 .Include(l => l.BookPdf)
-                .Select(l => new UserLoanDTO
+                .Select(l => new LoanDTOBookInfo
                 {
                     Id = l.Id,
                     Loan_Date = l.Loan_Date,
                     Return_Date = l.Return_Date,
-                    Book_Name= l.BookPdf.Book.Name,
-                    Book_Image = l.BookPdf.Book.Image
+                    Book_Name = l.BookPdf.Book.Name,
+                    Book_Image = l.BookPdf.Book.Image,
+                    Book_Author = l.BookPdf.Book.Author.Name,
+                    Book_Category = l.BookPdf.Book.Category.Name,
+                    Book_Description = l.BookPdf.Book.Description
                 })
                 .FirstOrDefaultAsync();
             
