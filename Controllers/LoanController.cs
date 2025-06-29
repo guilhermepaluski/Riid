@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Riid.Data;
+using Riid.DTO;
 using Riid.DTO.Loan;
 using Riid.Models;
 
@@ -91,6 +93,34 @@ namespace Riid.Controllers
             await _db.SaveChangesAsync();
 
             return Ok();
+        }
+
+        [Authorize]
+        [HttpGet("myBooks")]
+        public async Task<ActionResult<IEnumerable<LoanModel>>> GetMyLoans()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("Usuário não autenticado.");
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            var loans = await _db.Loan
+            .Where(l => l.Fk_user == userId)
+            .Include(l => l.BookPdf)
+            .Select(l => new UserLoanDTO
+            {
+                Id = l.Id,
+                Loan_Date = l.Loan_Date,
+                Return_Date = l.Return_Date,
+                Book_Name = l.BookPdf.Book.Name,
+                Book_Image = l.BookPdf.Book.Image,
+            })
+            .ToListAsync();
+
+            return Ok(loans);
         }
     }
 }
