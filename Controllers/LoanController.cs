@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Riid.Data;
@@ -121,6 +122,37 @@ namespace Riid.Controllers
             .ToListAsync();
 
             return Ok(loans);
+        }
+
+        [Authorize]
+        [HttpGet("myBooks/{Id:long}")]
+        public async Task<ActionResult<LoanModel>> getLoanById(long id)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null) 
+            {
+                return Unauthorized("Usuário não identificado");
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            var loan = await _db.Loan
+                .Where(l => l.Fk_user == userId)
+                .Where(l => l.Id == id)
+                .Include(l => l.BookPdf)
+                .Select(l => new UserLoanDTO
+                {
+                    Id = l.Id,
+                    Loan_Date = l.Loan_Date,
+                    Return_Date = l.Return_Date,
+                    Book_Name= l.BookPdf.Book.Name,
+                    Book_Image = l.BookPdf.Book.Image
+                })
+                .FirstOrDefaultAsync();
+            
+            if (loan == null) return NotFound("Id not found!");
+
+            return Ok(loan);
         }
     }
 }
